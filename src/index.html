@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Block explorer</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="./content/css/style.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//fonts.googleapis.com/css?family=Ubuntu+Mono"
+    />
+    <script src="script/app.js" type="module" defer></script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <img
+          src="./content/image/blockexp-4-icon.png"
+          alt="Block explorer icon"
+          width="160px"
+          heigth="160px"
+        />
+        <h1>Chain Explorer</h1>
+        <a>Choose a chain</a>
+        <button>Connect Wallet</button>
+      </nav>
+    </header>
+    <main>
+      <h2>start here</h2>
+      <input
+        type="text"
+        name="search"
+        id="search"
+        placeholder="Search for blocks, account, transaction and tokens"
+      />
+
+      <section id="priceAndBlock" class="priceAndBlock"></section>
+
+      <section id="gassPrice" class="gassPrice"></section>
+
+      <section id="walletSection" class="walletSection"></section>
+      <section id="itemSection" class="itemSection"></section>
+    </main>
+  </body>
+</html>

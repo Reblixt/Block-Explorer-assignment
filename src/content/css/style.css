@@ -1,0 +1,97 @@
+body {
+  background-color: #003744;
+}
+
+header {
+  background-color: #66808e;
+  height: 150px;
+}
+header nav {
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+  color: #dbe1e9;
+  min-width: 800px;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+header nav img {
+  margin-right: 50px;
+}
+header nav h1 {
+  margin-right: 100px;
+  font-size: 2rem;
+}
+header nav a {
+  margin-right: 30px;
+}
+header nav button {
+  border-radius: 6px;
+  color: #dbe1e9;
+  background-color: #003744;
+  transition: 0.4s;
+}
+header nav button:hover {
+  background-color: #66808e;
+  border: black 3px solid;
+}
+
+main input {
+  background-color: #b2bfc6;
+  max-width: 1000px;
+}
+
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/*# sourceMappingURL=style.css.map */

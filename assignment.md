@@ -16,19 +16,9 @@ För Väl Godkänt ska även best practices användas, det vill säga ES6 module
 
 Inlämning ska ske som GitHub länkar
 
-…………………………...
+# Lista för att göra!
 
-## Inlämningsuppgiften examinerar följande läranderesultat från kursplanen:
-
-planera och genomföra projekt inom utsatta tidsramar med hjälp av blockkedjeteknik och JavaScript samt välja tekniker och arbetsmetoder
-konsumera blockkedjor med utgångspunkt i praktiska arbetsproblem med hjälp av JavaScript
-använda High order metods för JavaScript array och listor
-hantering av verktyg för felsökning och spårning samt testning av egen kod
-
-## VG-mål för uppgiften:
-
-Den studerande har nått samtliga lärandemål för kursen. Den studerande kan dessutom:
-
-skriva avancerade testfall
-använda avancerad objektorienterad programmering
-Med högre kvalitet än för betyget G.
+- Search of a address and to be able to see the balance of that account/Wallet in Ether
+- Create a transaction and send it to another wallet thrue Javascript.
+- To see the current block count the
+- To use best practices with ES6 module and SOC
