@@ -7,6 +7,7 @@ const connectedFunds = document.querySelector("#balance");
 
 const priceSpan = document.querySelector("#price");
 const latestBlock = document.querySelector("#latestBlock");
+const gasPrice = document.querySelector("#gassPriceSpan");
 
 const rpc = new Web3(settings.Anvil_URL);
 
@@ -18,10 +19,9 @@ export const displayConnectedWallet = async (accounts) => {
 };
 
 export const displayPriceLatestBlock = async () => {
-  // Fortsätt här sedan!!!!!!!!
   const block = await rpc.eth.getBlock("latest");
 
-  //////////  if (block === null) return;
+  if (block === null) return;
   latestBlock.innerHTML = block.number;
 
   const ethPriceApi = apiToken.Ether;
@@ -46,7 +46,5 @@ export const displayGassPrice = async () => {
     }
   }
   const baseFeeGwei = baseFee / 1000000000;
-  const baseFeeEth = baseFee ** -18;
-  console.log("Gwei", baseFeeGwei);
-  console.log("eth", baseFeeEth);
+  gasPrice.innerHTML = baseFeeGwei;
 };
