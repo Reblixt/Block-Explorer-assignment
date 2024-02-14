@@ -33,15 +33,11 @@ header nav button {
   color: #dbe1e9;
   background-color: #003744;
   transition: 0.4s;
+  border: #66808e 3px solid;
 }
 header nav button:hover {
   background-color: #66808e;
   border: black 3px solid;
-}
-
-main input {
-  background-color: #b2bfc6;
-  max-width: 1000px;
 }
 
 /*
@@ -92,6 +88,59 @@ h6 {
 #root,
 #__next {
   isolation: isolate;
+}
+
+main {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1000px;
+}
+main .search-row {
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 98%;
+}
+main .search-row input {
+  flex-grow: 1;
+  background-color: #b2bfc6;
+  border: none;
+  padding: 8px;
+  margin-right: -4px;
+  border-radius: 5px 0 0 5px;
+}
+main .search-row input:focus {
+  outline: none;
+}
+main .search-row button {
+  background-color: #b2bfc6;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 0 5px 5px 0;
+}
+main .search-row button img {
+  width: 24px;
+  height: 24px;
+  border-radius: 0 5px 5px 0;
+}
+main .search-row,
+main .section-row {
+  display: flex;
+  justify-content: space-between;
+}
+main .section-row section {
+  flex: 1;
+  margin: 10px;
+}
+
+section {
+  background-color: #b2bfc6;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
 }
 
 /*# sourceMappingURL=style.css.map */

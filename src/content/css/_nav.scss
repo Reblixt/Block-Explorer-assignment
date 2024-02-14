@@ -33,17 +33,11 @@ header {
       color: #dbe1e9;
       background-color: #003744;
       transition: 0.4s;
+      border: #66808e 3px solid;
     }
     button:hover {
       background-color: #66808e;
       border: black 3px solid;
     }
-  }
-}
-
-main {
-  input {
-    background-color: #b2bfc6;
-    max-width: 1000px;
   }
 }

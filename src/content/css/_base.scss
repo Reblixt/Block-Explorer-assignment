@@ -1,0 +1,78 @@
+//main {
+//position: absolute;
+//left: 50%;
+//transform: translateX(-50%);
+//// display: flex;
+////  flex: auto;
+////  flex-direction: column;
+////.  justify-content: center;
+////  align-items: center;
+//width: 1000px;
+//
+//.search-row,
+//.section-row {
+//display: flex;
+//justify-content: space-between;
+//}
+//
+//.section-row section {
+//flex: 1;
+//margin: 10px;
+//}
+//
+//input {
+//background-color: #b2bfc6;
+//max-width: 100%;
+//}
+//}
+
+main {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1000px; // Du har redan satt bredden på main till 1000px
+
+  .search-row {
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; // Lägg till detta för att vertikalt centrera barnen
+    width: 98%; // Säkerställ att search-row tar upp hela bredden
+
+    input {
+      flex-grow: 1; // Låt input ta upp all tillgänglig plats
+      background-color: #b2bfc6;
+      border: none; // Ta bort om du vill ha en kant
+      padding: 8px; // Justera efter behov för att matcha design
+      margin-right: -4px; // Detta kan hjälpa till att "föra samman" knappen med inputfältet
+      border-radius: 5px 0 0 5px;
+      &:focus {
+        outline: none; // Ta bort fokusramen om önskat
+      }
+    }
+
+    button {
+      background-color: #b2bfc6; // Du har redan satt bakgrundsfärgen inline
+      border: none; // Ta bort standardkant
+      cursor: pointer; // Visa en pekare när musen är över knappen
+      padding: 8px; // Anpassa efter behov för att passa designen
+
+      border-radius: 0 5px 5px 0;
+      img {
+        width: 24px;
+        height: 24px;
+        border-radius: 0 5px 5px 0;
+      }
+    }
+  }
+  .search-row,
+  .section-row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .section-row section {
+    flex: 1;
+    margin: 10px;
+  }
+}
