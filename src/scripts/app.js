@@ -4,6 +4,8 @@ import {
   displayGassPrice,
   displayPriceLatestBlock,
 } from "./dom/dom.js";
+import { apiToken } from "./utilities/api.js";
+import { getApi } from "./service/getApi.js";
 
 const searchButton = document.querySelector("#searchButton");
 const searchInput = document.querySelector("#search");
@@ -17,13 +19,13 @@ const toAccountInput = document.querySelector("#toAccount");
 const amountInput = document.querySelector("#amount");
 const sendButton = document.querySelector("#sendTrx");
 
-const rpc = new Web3(settings.Anvil_URL);
+// välj mellan Anvil_URL, Sepolio_URL och BrowserWallet
+const rpc = new Web3(settings.BrowserWallet);
 
 let account;
 
 const initApp = () => {
   console.log("App Started");
-  //console.log(rpc);
   displayPriceLatestBlock();
   setInterval(displayPriceLatestBlock, 20000);
   displayGassPrice();
@@ -38,7 +40,6 @@ const connect = async () => {
     });
     connectButton.innerHTML = "Connected";
     displayConnectedWallet(accounts);
-    console.log(window.ethereum);
   } else {
     connectButton.innerHTML = "Connect Wallet";
     alert("you need a Compatible browser wallet like Metamask");
@@ -53,22 +54,37 @@ const checkBalance = async () => {
   itemFunds.innerHTML = rpc.utils.fromWei(balance, "ether");
 };
 
-//const sendTransaction = async () =>{ // Fortsätt här!!!!!!!
-//const toAddress = toAccountInput.value;
-//const amount = amountInput.value;
-//
-//try {
-//const trx = await rpc.eth.sendTransaction({
-//from:
-//})
-//
-//
-//} catch (error) {
-//throw Error(`Transaction failed because of: ${error}`)
-//}
-//}
+const sendTransaction = async () => {
+  const toAddress = toAccountInput.value;
+  const amount = parseFloat(amountInput.value) * Math.pow(10, 18);
+  const accounts = await ethereum.request({
+    method: "eth_requestAccounts",
+  });
+  const accountone = accounts[0];
+  const gasPrice = await window.ethereum.request({
+    method: "eth_gasPrice",
+  });
+
+  try {
+    let params = [
+      {
+        from: accountone,
+        to: toAddress,
+        value: Number(amount).toString(16), //Number(rpc.utils.toWei(amount, "ether")),
+        gas: Number(210000).toString(16),
+        gasPrice: gasPrice, //Number(5000000).toString(16),
+      },
+    ];
+    const response = await ethereum.request({
+      method: "eth_sendTransaction",
+      params: params,
+    });
+  } catch (error) {
+    throw Error(`Transaction failed because of: ${error}`);
+  }
+};
 
 document.addEventListener("DOMContentLoaded", initApp);
 searchButton.addEventListener("click", checkBalance);
 connectButton.addEventListener("click", connect);
-//sendButton.addEventListener("click", sendTransaction);
+sendButton.addEventListener("click", sendTransaction);

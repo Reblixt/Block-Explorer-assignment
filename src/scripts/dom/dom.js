@@ -1,6 +1,6 @@
+import { getApi } from "../service/getApi.js";
 import { apiToken } from "../utilities/api.js";
 import { settings } from "../utilities/config.js";
-import HttpClient from "../utilities/http.js";
 
 const connectedWallet = document.querySelector("#connectedWallet");
 const connectedFunds = document.querySelector("#balance");
@@ -9,7 +9,7 @@ const priceSpan = document.querySelector("#price");
 const latestBlock = document.querySelector("#latestBlock");
 const gasPrice = document.querySelector("#gassPriceSpan");
 
-const rpc = new Web3(settings.Anvil_URL);
+const rpc = new Web3(settings.BrowserWallet);
 
 export const displayConnectedWallet = async (accounts) => {
   connectedWallet.innerHTML = accounts[0];
@@ -24,9 +24,7 @@ export const displayPriceLatestBlock = async () => {
   if (block === null) return;
   latestBlock.innerHTML = block.number;
 
-  const ethPriceApi = apiToken.Ether;
-  const http = new HttpClient(ethPriceApi);
-  const results = await http.get();
+  const results = await getApi(apiToken.Ether);
   const ethPrice = results.result.ethusd;
   const trimmedEthPrice = Math.floor(ethPrice * 100) / 100;
 
@@ -34,9 +32,7 @@ export const displayPriceLatestBlock = async () => {
 };
 
 export const displayGassPrice = async () => {
-  const gasPriceApi = apiToken.Gas_Price;
-  const http = new HttpClient(gasPriceApi);
-  const results = await http.get();
+  const results = await getApi(apiToken.Gas_Price);
 
   let baseFee;
   if (results.error && results.error.message) {
