@@ -13,9 +13,9 @@ const itemFunds = document.querySelector("#itemFunds");
 
 const connectButton = document.querySelector("#connect");
 
-const toAccountInput = document.querySelector('#toAccount');
-const amountInput = document.querySelector('#amount');
-const sendButton = document.querySelector('#sendTrx');
+const toAccountInput = document.querySelector("#toAccount");
+const amountInput = document.querySelector("#amount");
+const sendButton = document.querySelector("#sendTrx");
 
 const rpc = new Web3(settings.Anvil_URL);
 
@@ -55,20 +55,20 @@ const checkBalance = async () => {
   console.log(balance);
 };
 
-const sendTransaction = async () =>{ // Fortsätt här!!!!!!!
-  const toAddress = toAccountInput.value;
-  const amount = amountInput.value;
-
-  try {
-    const trx = await rpc.eth.sendTransaction({
-      from:
-    })
-
-
-  } catch (error) {
-    throw Error(`Transaction failed because of: ${error}`)
-  }
-}
+//const sendTransaction = async () =>{ // Fortsätt här!!!!!!!
+//const toAddress = toAccountInput.value;
+//const amount = amountInput.value;
+//
+//try {
+//const trx = await rpc.eth.sendTransaction({
+//from:
+//})
+//
+//
+//} catch (error) {
+//throw Error(`Transaction failed because of: ${error}`)
+//}
+//}
 
 document.addEventListener("DOMContentLoaded", initApp);
 searchButton.addEventListener("click", checkBalance);
