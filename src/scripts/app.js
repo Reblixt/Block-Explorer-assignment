@@ -23,11 +23,11 @@ let account;
 
 const initApp = () => {
   console.log("App Started");
-  console.log(rpc);
+  //console.log(rpc);
   displayPriceLatestBlock();
-  setInterval(displayPriceLatestBlock, 60000);
+  setInterval(displayPriceLatestBlock, 20000);
   displayGassPrice();
-  setInterval(displayGassPrice, 60000);
+  setInterval(displayGassPrice, 20000);
 };
 
 const connect = async () => {
@@ -38,7 +38,7 @@ const connect = async () => {
     });
     connectButton.innerHTML = "Connected";
     displayConnectedWallet(accounts);
-    console.log(accounts[0]);
+    console.log(window.ethereum);
   } else {
     connectButton.innerHTML = "Connect Wallet";
     alert("you need a Compatible browser wallet like Metamask");
@@ -51,8 +51,6 @@ const checkBalance = async () => {
 
   const balance = await rpc.eth.getBalance(account);
   itemFunds.innerHTML = rpc.utils.fromWei(balance, "ether");
-
-  console.log(balance);
 };
 
 //const sendTransaction = async () =>{ // Fortsätt här!!!!!!!
@@ -73,3 +71,4 @@ const checkBalance = async () => {
 document.addEventListener("DOMContentLoaded", initApp);
 searchButton.addEventListener("click", checkBalance);
 connectButton.addEventListener("click", connect);
+//sendButton.addEventListener("click", sendTransaction);
