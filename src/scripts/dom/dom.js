@@ -9,7 +9,16 @@ const priceSpan = document.querySelector("#price");
 const latestBlock = document.querySelector("#latestBlock");
 const gasPrice = document.querySelector("#gassPriceSpan");
 
+const transactionList = document.querySelector("#transactionList");
+
 const rpc = new Web3(settings.BrowserWallet);
+
+export async function getConnectedAddress() {
+  const accounts = await ethereum.request({
+    method: "eth_requestAccounts",
+  });
+  return accounts;
+}
 
 export const displayConnectedWallet = async (accounts) => {
   connectedWallet.innerHTML = accounts[0];
@@ -44,3 +53,18 @@ export const displayGassPrice = async () => {
   const baseFeeGwei = baseFee / 1000000000;
   gasPrice.innerHTML = baseFeeGwei;
 };
+
+// Bugg funnen!
+// Om man har annat namn på aprugmentet denna function tar emot tex transactions
+// istället för hash. Då vid vid sendTransaction func heter variabeln hash.
+// så fungerar det inta att lista transactions uppgifterna.
+// Om du vet varför detta är fallet så uppskattar jag förklaringen! Tack på för hand!
+export function createTransactionList(hash /* transactions*/) {
+  transactionList.innerHTML = "";
+  transactionList.innerHTML += `  
+    <p>From: ${hash.from}</p> 
+    <p>To: ${hash.to}</p> 
+    <p>Value: ${rpc.utils.fromWei(hash.value, "ether")} ETH</p>
+    <p>Hash: ${hash.hash}</p>
+`;
+}
