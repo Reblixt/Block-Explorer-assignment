@@ -54,12 +54,7 @@ export const displayGassPrice = async () => {
   gasPrice.innerHTML = baseFeeGwei;
 };
 
-// Bugg funnen!
-// Om man har annat namn på aprugmentet denna function tar emot tex transactions
-// istället för hash. Då vid vid sendTransaction func heter variabeln hash.
-// så fungerar det inta att lista transactions uppgifterna.
-// Om du vet varför detta är fallet så uppskattar jag förklaringen! Tack på för hand!
-export function createTransactionList(hash /* transactions*/) {
+export function createTransactionList(hash) {
   transactionList.innerHTML = "";
   transactionList.innerHTML += `  
     <p>From: ${hash.from}</p> 
